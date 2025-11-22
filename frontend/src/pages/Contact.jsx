@@ -6,9 +6,9 @@ import emailjs from "emailjs-com";
 const RECAPTCHA_SITE_KEY = "6LeGB7ErAAAAABNHG37I5AQXic6FPTOqD5YPSZDK";
 
 // EmailJS Keys
-const SERVICE_ID = "service_fc7ays6";
-const TEMPLATE_ID = "template_088vx5u";
-const PUBLIC_KEY = "eUgT8p6W0DcsoivAt";
+const SERVICE_ID = "service_fc7ays6_111";
+const TEMPLATE_ID = "template_088vx5u_111";
+const PUBLIC_KEY = "eUgT8p6W0DcsoivAt_111";
 
 export default function Contact() {
   const { push } = useToast();
@@ -22,18 +22,18 @@ export default function Contact() {
 
     setLoading(true);
 
-    // emailjs
-    //   .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
-    //   .then(() => {
-    //     push("Message sent successfully!");
-    //     e.target.reset();
-    //     setToken(null);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     push("Failed to send message.");
-    //   })
-    //   .finally(() => setLoading(false));
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+      .then(() => {
+        push("Message sent successfully!");
+        e.target.reset();
+        setToken(null);
+      })
+      .catch((err) => {
+        console.error(err);
+        push("Failed to send message.");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
