@@ -9,6 +9,7 @@ import {
   Database,
   FileCode2,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal";
 import { useToast } from "@/components/Toast";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -236,11 +237,13 @@ export default function Jobs() {
 
   const onApply = (job) => {
     setActive(job);
-    setOpen(true);
-    setCaptchaToken(null);
-    setVerified(false);
-    setForm({ name: "", email: "", resume: "" });
-    setVerificationToken(null);
+    navigate("/contact");
+    // setOpen(true);
+    // setCaptchaToken(null);
+    // setVerified(false);
+    // setForm({ name: "", email: "", resume: "" });
+    // setVerificationToken(null);
+
   };
 
   const handleCopy = async () => {

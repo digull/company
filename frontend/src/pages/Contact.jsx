@@ -1,53 +1,92 @@
-import React from 'react'
-import { useToast } from '@/components/Toast'
-import ReCAPTCHA from 'react-google-recaptcha';
-import {useState} from 'react'
+import React, { useState } from "react";
+import { useToast } from "@/components/Toast";
+import ReCAPTCHA from "react-google-recaptcha";
+import emailjs from "emailjs-com";
 
-const RECAPTCHA_SITE_KEY = '6LeGB7ErAAAAABNHG37I5AQXic6FPTOqD5YPSZDK';
+const RECAPTCHA_SITE_KEY = "6LeGB7ErAAAAABNHG37I5AQXic6FPTOqD5YPSZDK";
+
+// EmailJS Keys
+const SERVICE_ID = "YOUR_SERVICE_ID";
+const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
 export default function Contact() {
-  const { push } = useToast()
+  const { push } = useToast();
+
+  const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (e) => {
-    e.preventDefault()
-    push('Thanks! Your message has been sent.')
-    e.currentTarget.reset()
-  }
-  
-  const [token, setToken] = useState(null);
+    e.preventDefault();
+    if (!token) return;
+
+    setLoading(true);
+
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+      .then(() => {
+        push("Message sent successfully!");
+        e.target.reset();
+        setToken(null);
+      })
+      .catch((err) => {
+        console.error(err);
+        push("Failed to send message.");
+      })
+      .finally(() => setLoading(false));
+  };
 
   return (
     <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      <form className="card p-6 space-y-4 border border-slate-200 dark:border-slate-800"
-            name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={onSubmit}>
-        <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden"><label>Don’t fill: <input name="bot-field" /></label></p>
+
+      <form
+        className="card p-6 space-y-4 border border-slate-200 dark:border-slate-800"
+        onSubmit={onSubmit}
+      >
         <div>
           <label className="label">Full name</label>
           <input className="input" name="name" required />
         </div>
+
         <div>
           <label className="label">Work email</label>
           <input className="input" name="email" type="email" required />
         </div>
+
         <div>
           <label className="label">Company</label>
           <input className="input" name="company" />
         </div>
+
         <div>
           <label className="label">Message</label>
-          <textarea className="input" name="message" rows="5" required></textarea>
+          <textarea
+            className="input"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
         </div>
-        
-        <div>
-          <ReCAPTCHA
-            sitekey={RECAPTCHA_SITE_KEY}
-            onChange={(value) => setToken(value)} // capture token here
-          />
-        </div>
-        <div data-netlify-recaptcha="true"></div> 
-        <button className="hidden sm:inline-flex px-6 py-3 rounded-lg text-xl font-semibold bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition" type="submit">Send</button>
+
+        <ReCAPTCHA
+          sitekey={RECAPTCHA_SITE_KEY}
+          onChange={(value) => setToken(value)}
+        />
+
+        <button
+          type="submit"
+          disabled={!token || loading}
+          className={`px-6 py-3 rounded-lg text-xl font-semibold text-white shadow-sm transition 
+            ${
+              !token || loading
+                ? "bg-slate-400 cursor-not-allowed"
+                : "bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500"
+            }`}
+        >
+          {loading ? "Sending..." : "Send"}
+        </button>
       </form>
     </div>
-  )
+  );
 }
