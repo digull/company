@@ -9,39 +9,42 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown if clicked outside
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
+    return () =>
       document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, []);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b dark:bg-slate-900/70 dark:border-slate-800 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} className="h-8 w-8" alt="NexusAI" />
-          <span className="font-bold text-xl text-slate-900 dark:text-white">
-            NexusAI
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} className="h-10 w-10" alt="NexVisionAI" />
+<span className="font-bold text-3xl bg-gradient-to-r from-indigo-600 to-emerald-500 bg-clip-text text-transparent">
+  NexVision AI
+</span>
+
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden md:flex items-center gap-4">
+
+          {/* About */}
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `px-3 py-2 rounded-md text-sm font-medium transition ${
+              `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 dark:bg-emerald-600 shadow-sm"
+                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -53,30 +56,31 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setOpen(!open)}
-              className="px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400 flex items-center gap-1"
+              className="px-4 py-2 rounded-md text-xl font-semibold text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400 flex items-center gap-1"
             >
-              Products <ChevronDown size={14} />
+              Products <ChevronDown size={18} />
             </button>
+
             {open && (
-              <div className="absolute top-full mt-2 w-48 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 py-2">
+              <div className="absolute top-full mt-3 w-56 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 py-2">
                 <Link
                   to="/products/blockchain"
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700"
+                  className="block px-5 py-3 text-lg hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   Blockchain Solutions
                 </Link>
                 <Link
                   to="/products/ai"
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700"
+                  className="block px-5 py-3 text-lg hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   AI Platform
                 </Link>
                 <Link
                   to="/products/consulting"
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700"
+                  className="block px-5 py-3 text-lg hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   Consulting
                 </Link>
@@ -84,12 +88,13 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* Blog */}
           <NavLink
             to="/blog"
             className={({ isActive }) =>
-              `px-3 py-2 rounded-md text-sm font-medium transition ${
+              `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 dark:bg-emerald-600 shadow-sm"
+                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -97,12 +102,13 @@ export default function Navbar() {
             Blog
           </NavLink>
 
+          {/* Job Opening */}
           <NavLink
             to="/jobs"
             className={({ isActive }) =>
-              `px-3 py-2 rounded-md text-sm font-medium transition ${
+              `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 dark:bg-emerald-600 shadow-sm"
+                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -112,38 +118,39 @@ export default function Navbar() {
         </nav>
 
         {/* Right Side */}
-        <div className="flex items-center gap-3">
-          {/* Contact CTA */}
+        <div className="flex items-center gap-4">
+
+          {/* Contact Button */}
           <Link
             to="/contact"
-            className="hidden sm:inline-flex px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-500 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
+            className="hidden sm:inline-flex px-6 py-3 rounded-lg text-xl font-semibold bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
           >
             Contact Us
           </Link>
 
-          {/* Theme toggle */}
-          <button
+          {/* Theme Toggle */}
+          {/* <button
             onClick={toggle}
             aria-label="Toggle theme"
-            className="btn btn-ghost rounded-full p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            className="rounded-full p-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
           >
             <span className="relative inline-block">
               <Sun
-                className={`h-5 w-5 transition-transform duration-300 ${
+                className={`h-7 w-7 transition-transform duration-300 ${
                   theme === "dark"
                     ? "opacity-0 -rotate-90"
                     : "opacity-100 rotate-0"
                 }`}
               />
               <Moon
-                className={`h-5 w-5 absolute top-0 left-0 transition-transform duration-300 ${
+                className={`h-7 w-7 absolute top-0 left-0 transition-transform duration-300 ${
                   theme === "dark"
                     ? "opacity-100 rotate-0"
                     : "opacity-0 rotate-90"
                 }`}
               />
             </span>
-          </button>
+          </button> */}
         </div>
       </div>
     </header>

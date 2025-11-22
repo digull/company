@@ -36,7 +36,7 @@ export default function Blockchain() {
       <div className="text-center">
         <a
           href="/contact"
-          className="btn btn-primary px-6 py-3 text-lg font-medium"
+          className="btn px-6 py-3 text-lg font-medium bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
         >
           Talk to Our Blockchain Experts
         </a>

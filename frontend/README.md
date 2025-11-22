@@ -1,4 +1,4 @@
-# NexusAI Pro — React + Vite + Tailwind (Dark/Light)
+# NexVisionAI Pro — React + Vite + Tailwind (Dark/Light)
 
 - 🌗 Dark/Light toggle with smooth animations (default dark)
 - 📰 Blog with cover images, avatars, detail pages + links

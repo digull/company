@@ -8,18 +8,18 @@ export default function Footer() {
         
         {/* Brand */}
         <div>
-          <div className="font-semibold text-lg">NexusAI</div>
+          <div className="font-semibold text-lg">NexVision</div>
           <p className="text-slate-600 dark:text-slate-300 mt-2">
             Blockchain & AI solutions for modern enterprises.
           </p>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">
-            HQ: Riyadh, Saudi Arabia
+            HQ: Singapore
           </p>
           <div className="flex gap-4 mt-4">
-            <a href="https://www.linkedin.com/company/nexusreality" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+            <a href="https://www.linkedin.com/company/nexvision-ai-center" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
               <Linkedin size={20} />
             </a>
-            <a href="https://github.com/orgs/chainhub1227" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+            <a href="https://github.com/orgs/nexvisionai/" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
               <Github size={20} />
             </a>
           </div>
@@ -49,7 +49,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="px-3 bg-indigo-600 text-white rounded-r-md hover:bg-indigo-500"
+              className="px-3 bg-slate-700 hover:bg-slate-600 text-white rounded-r-md hover:bg-indigo-500"
             >
               <Mail size={18} />
             </button>
@@ -59,7 +59,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="text-center text-slate-500 dark:text-slate-400 text-sm py-4 border-t dark:border-slate-800">
-        © {new Date().getFullYear()} NexusAI. All rights reserved.
+        © {new Date().getFullYear()} NexVision. All rights reserved.
       </div>
     </footer>
   );

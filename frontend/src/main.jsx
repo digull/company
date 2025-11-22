@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/theme/ThemeProvider'
 import { ToastProvider } from '@/components/Toast'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ShortTest from '@/components/ShortTest'
 import Home from '@/pages/Home'
 import About from '@/pages/About'
 import Blog from '@/pages/Blog'
@@ -13,7 +14,6 @@ import BlogDetail from '@/pages/BlogDetail'
 import Jobs from '@/pages/Jobs'
 import Contact from '@/pages/Contact'
 import SubmitBlog from '@/pages/SubmitBlog'
-
 
 import Consulting from '@/pages/products/Consulting'
 import Blockchain from '@/pages/products/Blockchain'
@@ -39,6 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/products/blockchain" element={<Blockchain />} />
                 <Route path="/products/ai" element={<AI />} />
                 <Route path="/products/consulting" element={<Consulting />} />
+                <Route path="/application" element={<ShortTest />} />
               </Routes>
             </main>
             <Footer />

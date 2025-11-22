@@ -46,7 +46,7 @@ export default function Contact() {
           />
         </div>
         <div data-netlify-recaptcha="true"></div> 
-        <button className="btn btn-primary" type="submit">Send</button>
+        <button className="hidden sm:inline-flex px-6 py-3 rounded-lg text-xl font-semibold bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition" type="submit">Send</button>
       </form>
     </div>
   )

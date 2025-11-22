@@ -1,191 +1,162 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { Cpu, Blocks, BarChart2, ShieldCheck, Globe2, Users } from "lucide-react"
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts"
+import { ShieldCheck, Users, Globe2, Cpu, Blocks, BarChart2 } from "lucide-react"
 
-const data = [
-  { y: "2022", ai: 42, chain: 28 },
-  { y: "2023", ai: 68, chain: 44 },
-  { y: "2024", ai: 85, chain: 57 },
-  { y: "2025", ai: 94, chain: 71 },
-]
-
-const Feature = ({ icon: Icon, title, desc }) => (
-  <div className="card p-6 border border-slate-200 dark:border-slate-800">
-    <div className="h-12 w-12 rounded-xl bg-indigo/10 dark:bg-emerald/10 flex items-center justify-center mb-4">
-      <Icon className="h-6 w-6 text-indigo dark:text-emerald" />
-    </div>
-    <h3 className="font-semibold text-xl">{title}</h3>
-    <p className="text-slate-600 dark:text-slate-300 mt-2">{desc}</p>
-  </div>
-)
-
-export default function Home() {
+export default function About() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-indigo-600 to-emerald-600 text-white dark:from-slate-900 dark:to-slate-900">
-        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
+    <div className="bg-white dark:bg-slate-900">
+
+      {/* Hero Section with Background Image */}
+      <section
+        className="relative bg-center bg-cover bg-no-repeat text-white"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 py-28 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-extrabold"
           >
-            Enterprise AI + Blockchain Infrastructure
+            About NexVision AI
           </motion.h1>
-          <p className="mt-6 text-lg max-w-3xl mx-auto opacity-90">
-            NexusAI delivers trusted automation and decentralized intelligence
-            to leading enterprises and governments worldwide.
+
+          <p className="mt-6 text-lg max-w-3xl mx-auto text-gray-200">
+            Founded in 2024, NexVision AI is dedicated to building intelligent,
+            transparent, and secure digital ecosystems powered by AI-driven
+            automation and blockchain infrastructure.
           </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <a href="/contact" className="btn btn-primary">
-              Schedule a Demo
-            </a>
-            <a href="/about" className="btn btn-ghost">
-              Learn More
-            </a>
+        </div>
+      </section>
+
+      {/* Mission */}
+<section className="max-w-7xl mx-auto px-6 py-20">
+  <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-10 dark:text-white">
+    Our Mission
+  </h2>
+
+  <p className="max-w-4xl mx-auto text-center text-xl md:text-2xl font-medium leading-relaxed text-slate-700 dark:text-slate-300">
+    Our mission is to empower organizations with intelligent automation,
+    secure decentralized systems, and future-ready digital infrastructure.
+    We bring together advanced AI, machine learning, and blockchain technology
+    to deliver solutions that elevate transparency, scalability, and global trust.
+  </p>
+</section>
+
+
+      {/* Timeline */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold text-center mb-10 dark:text-white">
+          Our Journey
+        </h2>
+
+        <div className="space-y-10">
+          <div className="card p-6 border border-slate-200 dark:border-slate-800">
+            <h3 className="font-bold text-xl dark:text-white">2024 — Founded</h3>
+            <p className="text-slate-600 dark:text-slate-300">
+              NexVision AI was established with the goal of merging AI and
+              decentralized digital systems.
+            </p>
+          </div>
+
+          <div className="card p-6 border border-slate-200 dark:border-slate-800">
+            <h3 className="font-bold text-xl dark:text-white">
+              2025 — First Enterprise Deployment
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300">
+              Launched our first enterprise-grade AI automation model and
+              blockchain analytics pipeline.
+            </p>
+          </div>
+
+          <div className="card p-6 border border-slate-200 dark:border-slate-800">
+            <h3 className="font-bold text-xl dark:text-white">
+              2026 — Global Expansion
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300">
+              Expanded our team and infrastructure to support clients across
+              multiple regions.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-        <Feature
-          icon={Cpu}
-          title="AI Research"
-          desc="Deployed NLP models, forecasting engines, and autonomous agents at enterprise scale."
-        />
-        <Feature
-          icon={Blocks}
-          title="Blockchain"
-          desc="Zero-trust architecture, audited smart contracts, zk-rollup integrations."
-        />
-        <Feature
-          icon={BarChart2}
-          title="Enterprise Intelligence"
-          desc="Data pipelines, secure dashboards, and automation platforms with >99.99% uptime."
-        />
-      </section>
+      {/* Impact Stats */}
+      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-10 text-center">
+        <div>
+          <ShieldCheck className="mx-auto h-10 w-10 text-indigo-600 dark:text-emerald-500 mb-3" />
+          <h3 className="text-3xl font-bold dark:text-white">500+</h3>
+          <p className="text-slate-600 dark:text-slate-400">Users Served</p>
+        </div>
 
-      {/* Insights / Chart */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-semibold mb-6 text-center">
-            Market Adoption Insights
-          </h2>
-          <div className="h-80 w-full card p-4 border border-slate-200 dark:border-slate-800">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data}>
-                <Line
-                  type="monotone"
-                  dataKey="ai"
-                  stroke="#4f46e5"
-                  strokeWidth={2}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="chain"
-                  stroke="#10b981"
-                  strokeWidth={2}
-                />
-                <CartesianGrid stroke="#1f2937" strokeOpacity={0.2} />
-                <XAxis stroke="#9ca3af" dataKey="y" />
-                <YAxis stroke="#9ca3af" />
-                <Tooltip />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+        <div>
+          <Globe2 className="mx-auto h-10 w-10 text-emerald-600 dark:text-indigo-400 mb-3" />
+          <h3 className="text-3xl font-bold dark:text-white">20+</h3>
+          <p className="text-slate-600 dark:text-slate-400">Deployments</p>
         </div>
-      </section>
 
-      {/* Company Impact */}
-      <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-8 text-center">
         <div>
-          <ShieldCheck className="mx-auto h-8 w-8 text-indigo-500 mb-3" />
-          <h3 className="text-2xl font-bold">500M+</h3>
-          <p className="text-slate-600 dark:text-slate-400">Transactions Secured</p>
+          <Users className="mx-auto h-10 w-10 text-indigo-600 dark:text-emerald-500 mb-3" />
+          <h3 className="text-3xl font-bold dark:text-white">70+</h3>
+          <p className="text-slate-600 dark:text-slate-400">Specialists</p>
         </div>
+
         <div>
-          <Globe2 className="mx-auto h-8 w-8 text-emerald-500 mb-3" />
-          <h3 className="text-2xl font-bold">20+</h3>
-          <p className="text-slate-600 dark:text-slate-400">Global Deployments</p>
-        </div>
-        <div>
-          <Users className="mx-auto h-8 w-8 text-indigo-500 mb-3" />
-          <h3 className="text-2xl font-bold">70+</h3>
-          <p className="text-slate-600 dark:text-slate-400">Specialists Worldwide</p>
-        </div>
-        <div>
-          <BarChart2 className="mx-auto h-8 w-8 text-emerald-500 mb-3" />
-          <h3 className="text-2xl font-bold">99.99%</h3>
-          <p className="text-slate-600 dark:text-slate-400">Uptime Guarantee</p>
+          <BarChart2 className="mx-auto h-10 w-10 text-emerald-600 dark:text-indigo-400 mb-3" />
+          <h3 className="text-3xl font-bold dark:text-white">99.99%</h3>
+          <p className="text-slate-600 dark:text-slate-400">Uptime</p>
         </div>
       </section>
 
       {/* Culture */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-semibold mb-8 text-center">
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-10 dark:text-white">
           Inside Our Culture
         </h2>
-        <p className="text-center max-w-3xl mx-auto text-slate-600 dark:text-slate-400 mb-10">
-          At NexusAI, our culture is rooted in curiosity, ethical responsibility,
-          and relentless innovation. We unite blockchain pioneers and AI
-          researchers to build solutions that drive transparency, global trust,
-          and sustainable digital ecosystems.
-        </p>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          <div className="card p-6 border border-slate-200 dark:border-slate-800 text-center">
-            <h3 className="font-semibold text-lg mb-2">Innovation</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              We foster continuous breakthroughs in cryptography, AI, and distributed systems.
-            </p>
-          </div>
-          <div className="card p-6 border border-slate-200 dark:border-slate-800 text-center">
-            <h3 className="font-semibold text-lg mb-2">Ethics</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              Our work is guided by principles of fairness, transparency, and accountability.
-            </p>
-          </div>
-          <div className="card p-6 border border-slate-200 dark:border-slate-800 text-center">
-            <h3 className="font-semibold text-lg mb-2">Collaboration</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              We believe diverse, global teams produce resilient, world-class solutions.
-            </p>
-          </div>
-          <div className="card p-6 border border-slate-200 dark:border-slate-800 text-center">
-            <h3 className="font-semibold text-lg mb-2">Sustainability</h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              Building decentralized systems that are energy-conscious and future-proof.
-            </p>
-          </div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-14">
+          {[
+            {
+              title: "Innovation",
+              desc: "Pushing boundaries in AI, cryptography, and distributed systems.",
+            },
+            {
+              title: "Ethics",
+              desc: "We prioritize fairness, transparency, and responsible innovation.",
+            },
+            {
+              title: "Collaboration",
+              desc: "Global teamwork drives solutions that scale and endure.",
+            },
+            {
+              title: "Sustainability",
+              desc: "Building energy-conscious, future-proof decentralized systems.",
+            },
+          ].map((i, index) => (
+            <div
+              key={index}
+              className="card p-6 border border-slate-200 dark:border-slate-800 text-center"
+            >
+              <h3 className="text-lg font-semibold dark:text-white">
+                {i.title}
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
+                {i.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
+        {/* Images */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <img
-            className="card object-cover w-full h-56"
-            src="AI.png"
-            alt="Blockchain visualization"
-          />
-          <img
-            className="card object-cover w-full h-56"
-            src="Blockchain.png"
-            alt="Artificial intelligence network"
-          />
-          <img
-            className="card object-cover w-full h-56"
-            src="Furturistic.png"
-            alt="Futuristic technology lab"
-          />
+          <img src="AI.png" className="card h-56 w-full object-cover" />
+          <img src="Blockchain.png" className="card h-56 w-full object-cover" />
+          <img src="Furturistic.png" className="card h-56 w-full object-cover" />
         </div>
       </section>
     </div>
