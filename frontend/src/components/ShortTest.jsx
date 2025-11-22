@@ -11,10 +11,10 @@ export default function ContactForm() {
     script.onload = () => {
       if (window.formsapp) {
         new window.formsapp(
-          "691dde478b2742893844d890",
+          "69220a708771255e28e67b68",
           "fullscreen",
           {},
-          "https://z52vrx9d.forms.app"
+          "dapp-job-application-form"
         );
       }
     };
@@ -29,7 +29,7 @@ export default function ContactForm() {
 
   return (
     <div>
-      <div formsappId="691dde478b2742893844d890"></div>
+      <div formsappId="69220a708771255e28e67b68"></div>
     </div>
   );
 }
