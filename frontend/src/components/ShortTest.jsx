@@ -1,28 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ShortTest() {
   const navigate = useNavigate();
+  const [showMessage, setShowMessage] = useState(true); // show the message immediately
 
   useEffect(() => {
-    // Mutation observer to detect slider closing
-    const observer = new MutationObserver(() => {
-      const slider = document.querySelector(".formsapp-slider");
-      const overlay = document.querySelector(".formsapp-overlay");
+    // Delay before loading the forms.app script
+    const timer = setTimeout(() => {
+      loadFormsApp();
+    }, 1200); // 1.2 seconds
 
-      // If both disappear → user closed the slider
-      if (!slider && !overlay) {
-        navigate("/contact");
-      }
-    });
+    return () => clearTimeout(timer);
+  }, []);
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    // Load forms.app script only once
+  function loadFormsApp() {
     let script = document.getElementById("formsapp-script");
+
     if (!script) {
       script = document.createElement("script");
       script.id = "formsapp-script";
@@ -45,11 +39,39 @@ export default function ShortTest() {
         "https://vc3b3ipj.forms.app"
       );
 
+      // Redirect BEFORE slider bar opens
+      navigate("/contact");
+
+      // Open slider after redirect trigger
       instance.open();
+
+      // Hide message once slider appears
+      setShowMessage(false);
     };
+  }
 
-    return () => observer.disconnect();
-  }, [navigate]);
-
-  return null;
+  return (
+    <>
+      {showMessage && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(0,0,0,0.7)",
+            color: "white",
+            fontSize: "22px",
+            zIndex: 9999,
+            textAlign: "center",
+            padding: "20px"
+          }}
+        >
+          Just a minute…<br />
+          Generating the questions to test your tech skills.
+        </div>
+      )}
+    </>
+  );
 }
