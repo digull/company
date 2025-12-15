@@ -27,12 +27,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} className="h-10 w-10" alt="TrustLedgerLabs" />
-<span className="font-bold text-3xl bg-gradient-to-r from-indigo-600 to-emerald-500 bg-clip-text text-transparent">
-  TrustLedgerLabs
-</span>
-
+        <Link to="/" className="flex items-center gap-4">
+          <img
+            src={logo}
+            className="h-14 w-14" // ⬅️ Bigger logo
+            alt="TrustLedgerLabs"
+          />
+          <span className="font-bold text-3xl text-slate-900 dark:text-slate-100">
+            TrustLedgerLabs
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -44,7 +47,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
+                  ? "bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -94,7 +97,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
+                  ? "bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -108,7 +111,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `px-4 py-2 rounded-md text-xl font-semibold transition ${
                 isActive
-                  ? "text-white bg-indigo-600 bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
+                  ? "bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm"
                   : "text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-emerald-400"
               }`
             }
@@ -127,30 +130,6 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
-
-          {/* Theme Toggle */}
-          {/* <button
-            onClick={toggle}
-            aria-label="Toggle theme"
-            className="rounded-full p-3 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-          >
-            <span className="relative inline-block">
-              <Sun
-                className={`h-7 w-7 transition-transform duration-300 ${
-                  theme === "dark"
-                    ? "opacity-0 -rotate-90"
-                    : "opacity-100 rotate-0"
-                }`}
-              />
-              <Moon
-                className={`h-7 w-7 absolute top-0 left-0 transition-transform duration-300 ${
-                  theme === "dark"
-                    ? "opacity-100 rotate-0"
-                    : "opacity-0 rotate-90"
-                }`}
-              />
-            </span>
-          </button> */}
         </div>
       </div>
     </header>
