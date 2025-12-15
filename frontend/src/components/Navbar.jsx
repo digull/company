@@ -27,10 +27,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-2">
           <img
             src={logo}
-            className="h-14 w-14" // ⬅️ Bigger logo
+            className="h-16 w-16"
             alt="TrustLedgerLabs"
           />
           <span className="font-bold text-3xl text-slate-900 dark:text-slate-100">
