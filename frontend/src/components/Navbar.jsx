@@ -30,7 +30,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-0">
           <img
             src={logo}
-            className="h-14 w-13"
+            className="h-14 w-14"
             alt="TrustLedgerLabs"
           />
           <span className="font-bold text-3xl text-slate-900 dark:text-slate-100">
