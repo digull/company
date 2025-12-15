@@ -21,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const RECAPTCHA_SITE_KEY = "6LeuqSwsAAAAAERNr5oieKjLSIxpL1pEh9iEZiU0";
+const RECAPTCHA_SITE_KEY = "6LeuqSwsAAAAAA6TdMFwBNOfzfifkZ-VtBd9TRhq";
 
 export default function Contact() {
   const { push } = useToast();
