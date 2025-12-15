@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useToast } from "@/components/Toast";
-import ReCAPTCHA from "react-google-recaptcha";
 
 // Firebase
 import { initializeApp } from "firebase/app";
@@ -21,13 +20,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const RECAPTCHA_SITE_KEY = "6LdMrSwsAAAAANmGm6JIB78gq3OS2QBYQnH8LeeP";
-
 export default function Contact() {
   const { push } = useToast();
-
-  const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,8 +41,6 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!token) return;
-
     setLoading(true);
 
     const submitData = {
@@ -60,17 +54,14 @@ export default function Contact() {
 
     try {
       await addDoc(collection(db, "contact_form"), submitData);
-
       push("Your message has been submitted successfully!");
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
         company: "",
         message: "",
       });
-      setToken(null);
     } catch (error) {
       console.error("Firestore Error:", error);
       push("Failed to submit message.");
@@ -139,16 +130,11 @@ export default function Contact() {
           ></textarea>
         </div>
 
-        <ReCAPTCHA
-          sitekey={RECAPTCHA_SITE_KEY}
-          onChange={(value) => setToken(value)}
-        />
-
         <button
           type="submit"
-          disabled={!token || loading}
+          disabled={loading}
           className={`w-full px-6 py-3 rounded-lg text-xl font-semibold text-white shadow-sm transition ${
-            !token || loading
+            loading
               ? "bg-slate-400 cursor-not-allowed"
               : "bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500"
           }`}
