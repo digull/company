@@ -28,9 +28,9 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} className="h-10 w-10" alt="NexVisionAI" />
+          <img src={logo} className="h-10 w-10" alt="TrustLedgerLabs" />
 <span className="font-bold text-3xl bg-gradient-to-r from-indigo-600 to-emerald-500 bg-clip-text text-transparent">
-  NexVision AI
+  TrustLedgerLabs
 </span>
 
         </Link>

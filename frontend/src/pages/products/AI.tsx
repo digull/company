@@ -38,7 +38,7 @@ export default function AI() {
           href="/contact"
           className="btn px-6 py-3 text-lg font-medium bg-slate-700 hover:bg-slate-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition"
         >
-          Explore AI with NexVisionAI
+          Explore AI with TrustLedgerLabs
         </a>
       </div>
     </div>

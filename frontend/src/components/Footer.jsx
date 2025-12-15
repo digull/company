@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* Brand */}
         <div>
-          <div className="font-semibold text-lg">NexVision</div>
+          <div className="font-semibold text-lg">TrustLedgerLabs</div>
           <p className="text-slate-600 dark:text-slate-300 mt-2">
             Blockchain & AI solutions for modern enterprises.
           </p>
@@ -16,10 +16,10 @@ export default function Footer() {
             HQ: Singapore
           </p>
           <div className="flex gap-4 mt-4">
-            <a href="https://www.linkedin.com/company/nexvision-ai-center" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+            <a href="https://www.linkedin.com/company/trustledgerlabs" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
               <Linkedin size={20} />
             </a>
-            <a href="https://github.com/orgs/nexvisionai/" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+            <a href="https://github.com/orgs/TrustLedgerLabs/" className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400">
               <Github size={20} />
             </a>
           </div>
@@ -59,7 +59,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="text-center text-slate-500 dark:text-slate-400 text-sm py-4 border-t dark:border-slate-800">
-        © {new Date().getFullYear()} NexVision. All rights reserved.
+        © {new Date().getFullYear()} TrustLedgerLabs. All rights reserved.
       </div>
     </footer>
   );

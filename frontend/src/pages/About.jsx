@@ -8,10 +8,10 @@ export default function About() {
       {/* Hero Intro */}
       <section className="text-center">
         <h1 className="text-5xl font-extrabold mb-6 text-slate-800 dark:text-slate-100">
-          About NexVisionAI
+          About TrustLedgerLabs
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-4xl mx-auto">
-          NexVisionAI builds modern infrastructure at the intersection of{" "}
+          TrustLedgerLabs builds modern infrastructure at the intersection of{" "}
           <span className="font-semibold text-blue-600 dark:text-blue-400">Artificial Intelligence </span> 
            and <span className="font-semibold text-blue-600 dark:text-blue-400">Blockchain technology</span>.  
           Since 2024, we have focused on delivering solutions that bring{" "}
@@ -101,7 +101,7 @@ export default function About() {
           {[
             {
               year: "2024 — Founded",
-              text: "NexVisionAI was established with the mission to build secure and intelligent infrastructure powered by AI and blockchain."
+              text: "TrustLedgerLabs was established with the mission to build secure and intelligent infrastructure powered by AI and blockchain."
             },
             {
               year: "2024 — MVP Development",

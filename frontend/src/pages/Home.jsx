@@ -23,11 +23,11 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-extrabold"
           >
-            About NexVision AI
+            About TrustLedgerLabs
           </motion.h1>
 
           <p className="mt-6 text-lg max-w-3xl mx-auto text-gray-200">
-            Founded in 2024, NexVision AI is dedicated to building intelligent,
+            Founded in 2024, TrustLedgerLabs is dedicated to building intelligent,
             transparent, and secure digital ecosystems powered by AI-driven
             automation and blockchain infrastructure.
           </p>
@@ -59,7 +59,7 @@ export default function About() {
           <div className="card p-6 border border-slate-200 dark:border-slate-800">
             <h3 className="font-bold text-xl dark:text-white">2024 — Founded</h3>
             <p className="text-slate-600 dark:text-slate-300">
-              NexVision AI was established with the goal of merging AI and
+              TrustLedgerLabs was established with the goal of merging AI and
               decentralized digital systems.
             </p>
           </div>
