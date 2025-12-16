@@ -103,7 +103,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label className="label">Work email *</label>
+          <label className="label"> email *</label>
           <input
             className="input"
             name="email"
