@@ -40,8 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/products/blockchain" element={<Blockchain />} />
                 <Route path="/products/ai" element={<AI />} />
                 <Route path="/products/consulting" element={<Consulting />} />
-                <Route path="/application" element={<ShortTest />} />
-                <Route path="/application" element={<ShortTest />} />
+                <Route path="/apply" element={<ShortTest />} />
                 <Route path="/contact/dashboard" element={<Dashboard />} />
               </Routes>
             </main>
